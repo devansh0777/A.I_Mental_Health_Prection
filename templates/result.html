@@ -1,0 +1,166 @@
+{% extends "base.html" %}
+
+{% block title %}Prediction Results - Mental Health Analysis{% endblock %}
+
+{% block content %}
+<div class="container mt-5 pt-4">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <!-- Result Card -->
+            <div class="card border-0 shadow-lg mb-4">
+                <div class="card-header bg-gradient text-white text-center py-4">
+                    <h2 class="mb-0 fw-bold">
+                        <i class="fas fa-chart-pie me-2"></i>
+                        Your Prediction Results
+                    </h2>
+                    <p class="mb-0 mt-2 opacity-75">Analysis completed on {{ result.timestamp }}</p>
+                </div>
+                
+                <div class="card-body p-4">
+                    <!-- Main Result -->
+                    <div class="result-main text-center mb-4">
+                        <div class="prediction-result mb-3">
+                            {% if result.prediction == 'Seeking Treatment' %}
+                                <div class="result-icon text-warning mb-3">
+                                    <i class="fas fa-user-md fa-4x"></i>
+                                </div>
+                                <h3 class="fw-bold text-warning">Likely to Seek Treatment</h3>
+                                <p class="lead">Based on the analysis, you are likely to seek mental health treatment.</p>
+                            {% else %}
+                                <div class="result-icon text-info mb-3">
+                                    <i class="fas fa-user-check fa-4x"></i>
+                                </div>
+                                <h3 class="fw-bold text-info">Less Likely to Seek Treatment</h3>
+                                <p class="lead">Based on the analysis, you are less likely to seek mental health treatment.</p>
+                            {% endif %}
+                        </div>
+                        
+                        <!-- Confidence Score -->
+                        <div class="confidence-score">
+                            <h5 class="fw-semibold mb-3">Confidence Score</h5>
+                            <div class="progress mb-2" style="height: 20px;">
+                                <div class="progress-bar bg-success" role="progressbar" 
+                                     style="width: {{ result.confidence }}%" 
+                                     aria-valuenow="{{ result.confidence }}" 
+                                     aria-valuemin="0" aria-valuemax="100">
+                                    {{ result.confidence }}%
+                                </div>
+                            </div>
+                            <small class="text-muted">
+                                This indicates how confident our model is in this prediction
+                            </small>
+                        </div>
+                    </div>
+
+                    <!-- Recommendations -->
+                    <div class="recommendations mb-4">
+                        <h5 class="fw-semibold mb-3">
+                            <i class="fas fa-lightbulb text-warning me-2"></i>
+                            Recommendations
+                        </h5>
+                        
+                        {% if result.prediction == 'Seeking Treatment' %}
+                            <div class="alert alert-info">
+                                <ul class="mb-0">
+                                    <li>Consider reaching out to mental health professionals</li>
+                                    <li>Explore your employer's mental health benefits and resources</li>
+                                    <li>Talk to trusted colleagues or supervisors about support options</li>
+                                    <li>Look into employee assistance programs (EAP) if available</li>
+                                </ul>
+                            </div>
+                        {% else %}
+                            <div class="alert alert-success">
+                                <ul class="mb-0">
+                                    <li>Continue monitoring your mental health regularly</li>
+                                    <li>Stay informed about available mental health resources</li>
+                                    <li>Don't hesitate to seek help if circumstances change</li>
+                                    <li>Consider preventive measures like stress management</li>
+                                </ul>
+                            </div>
+                        {% endif %}
+                    </div>
+
+                    <!-- Important Notice -->
+                    <div class="alert alert-warning">
+                        <h6 class="fw-semibold">
+                            <i class="fas fa-exclamation-triangle me-2"></i>
+                            Important Disclaimer
+                        </h6>
+                        <p class="mb-0">
+                            This prediction is based on statistical analysis and should not replace 
+                            professional medical advice. Always consult with qualified healthcare 
+                            professionals for mental health concerns.
+                        </p>
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="text-center">
+                        <a href="{{ url_for('predict_form') }}" class="btn btn-primary me-3">
+                            <i class="fas fa-redo me-2"></i>
+                            New Prediction
+                        </a>
+                        <a href="{{ url_for('about') }}" class="btn btn-outline-primary">
+                            <i class="fas fa-info-circle me-2"></i>
+                            Learn About the Model
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Technical Details (Collapsible) -->
+            <div class="card border-0 shadow-sm">
+                <div class="card-header">
+                    <button class="btn btn-link text-decoration-none fw-semibold" 
+                            type="button" data-bs-toggle="collapse" 
+                            data-bs-target="#technicalDetails">
+                        <i class="fas fa-cog me-2"></i>
+                        Technical Details
+                        <i class="fas fa-chevron-down ms-2"></i>
+                    </button>
+                </div>
+                <div id="technicalDetails" class="collapse">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h6 class="fw-semibold">Model Information</h6>
+                                <ul class="list-unstyled">
+                                    <li><strong>Algorithm:</strong> Logistic Regression</li>
+                                    <li><strong>Features:</strong> 20 workplace & personal factors</li>
+                                    <li><strong>Training Data:</strong> 1000+ survey responses</li>
+                                    <li><strong>Validation:</strong> Cross-validated F1 score</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <h6 class="fw-semibold">Prediction Details</h6>
+                                <ul class="list-unstyled">
+                                    <li><strong>Prediction:</strong> {{ result.prediction }}</li>
+                                    <li><strong>Confidence:</strong> {{ result.confidence }}%</li>
+                                    <li><strong>Timestamp:</strong> {{ result.timestamp }}</li>
+                                    <li><strong>Features Used:</strong> {{ result.form_data|length }}</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+// Add smooth animations for result reveal
+document.addEventListener('DOMContentLoaded', function() {
+    const resultCard = document.querySelector('.card');
+    resultCard.style.opacity = '0';
+    resultCard.style.transform = 'translateY(20px)';
+    
+    setTimeout(() => {
+        resultCard.style.transition = 'all 0.6s ease';
+        resultCard.style.opacity = '1';
+        resultCard.style.transform = 'translateY(0)';
+    }, 100);
+});
+</script>
+{% endblock %}

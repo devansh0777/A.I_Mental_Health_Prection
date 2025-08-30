@@ -1,0 +1,199 @@
+{% extends "base.html" %}
+
+{% block title %}Mental Health Prediction - AI-Powered Analysis{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero-section">
+    <div class="container">
+        <div class="row align-items-center min-vh-100">
+            <div class="col-lg-6">
+                <div class="hero-content">
+                    <h1 class="display-4 fw-bold mb-4 text-white">
+                        AI-Powered Mental Health 
+                        <span class="text-warning">Prediction</span>
+                    </h1>
+                    <p class="lead mb-4 text-white">
+                        Advanced machine learning model that analyzes workplace and personal factors 
+                        to predict mental health treatment seeking behavior with high accuracy.
+                    </p>
+                    <div class="hero-stats mb-4">
+                        <div class="row text-center">
+                            <div class="col-4">
+                                <div class="stat-item">
+                                    <h3 class="fw-bold text-warning">92%</h3>
+                                    <small class="text-light">Accuracy</small>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="stat-item">
+                                    <h3 class="fw-bold text-info">1000+</h3>
+                                    <small class="text-light">Data Points</small>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="stat-item">
+                                    <h3 class="fw-bold text-success">20</h3>
+                                    <small class="text-light">Features</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hero-buttons">
+                        <a href="/predict" class="btn btn-light btn-lg me-3 shadow">
+                            <i class="fas fa-chart-line me-2"></i>
+                            Try Prediction
+                        </a>
+                        <a href="/about" class="btn btn-outline-light btn-lg">
+                            <i class="fas fa-info-circle me-2"></i>
+                            Learn More
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="hero-image text-center">
+                    <div class="brain-animation">
+                        <i class="fas fa-brain fa-10x text-white opacity-75"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Features Section -->
+<section class="features-section py-5 bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center mb-5">
+                <h2 class="fw-bold">Why Choose Our System?</h2>
+                <p class="lead text-muted">Advanced machine learning meets user-friendly design</p>
+            </div>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="feature-card card h-100 border-0 shadow-sm">
+                    <div class="card-body text-center p-4">
+                        <div class="feature-icon mb-3">
+                            <i class="fas fa-robot fa-3x text-primary"></i>
+                        </div>
+                        <h5 class="card-title fw-bold">AI-Powered Analysis</h5>
+                        <p class="card-text text-muted">
+                            Uses advanced logistic regression and ensemble methods trained on 
+                            comprehensive workplace mental health data.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature-card card h-100 border-0 shadow-sm">
+                    <div class="card-body text-center p-4">
+                        <div class="feature-icon mb-3">
+                            <i class="fas fa-shield-alt fa-3x text-success"></i>
+                        </div>
+                        <h5 class="card-title fw-bold">Privacy First</h5>
+                        <p class="card-text text-muted">
+                            Your data is processed securely and not stored. All predictions 
+                            are made locally with complete privacy protection.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature-card card h-100 border-0 shadow-sm">
+                    <div class="card-body text-center p-4">
+                        <div class="feature-icon mb-3">
+                            <i class="fas fa-chart-bar fa-3x text-info"></i>
+                        </div>
+                        <h5 class="card-title fw-bold">Detailed Insights</h5>
+                        <p class="card-text text-muted">
+                            Get confidence scores and detailed analysis of factors 
+                            influencing mental health treatment decisions.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- How It Works Section -->
+<section class="how-it-works py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center mb-5">
+                <h2 class="fw-bold">How It Works</h2>
+                <p class="lead text-muted">Simple steps to get your mental health prediction</p>
+            </div>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="step-card text-center">
+                    <div class="step-number mb-3">
+                        <span class="badge bg-primary rounded-circle p-3">
+                            <i class="fas fa-edit fa-2x"></i>
+                        </span>
+                    </div>
+                    <h5 class="fw-bold">Fill the Form</h5>
+                    <p class="text-muted">
+                        Answer questions about your workplace environment, 
+                        personal history, and mental health factors.
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="step-card text-center">
+                    <div class="step-number mb-3">
+                        <span class="badge bg-success rounded-circle p-3">
+                            <i class="fas fa-cogs fa-2x"></i>
+                        </span>
+                    </div>
+                    <h5 class="fw-bold">AI Analysis</h5>
+                    <p class="text-muted">
+                        Our machine learning model analyzes your responses 
+                        using advanced algorithms and statistical methods.
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="step-card text-center">
+                    <div class="step-number mb-3">
+                        <span class="badge bg-info rounded-circle p-3">
+                            <i class="fas fa-chart-pie fa-2x"></i>
+                        </span>
+                    </div>
+                    <h5 class="fw-bold">Get Results</h5>
+                    <p class="text-muted">
+                        Receive detailed predictions with confidence scores 
+                        and insights into the decision factors.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+// Debug button clicks
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('Index page loaded');
+    
+    // Add click listeners to all buttons for debugging
+    const buttons = document.querySelectorAll('a.btn');
+    buttons.forEach((button, index) => {
+        button.addEventListener('click', function(e) {
+            console.log(`Button ${index + 1} clicked:`, this.href);
+            console.log('Button text:', this.textContent.trim());
+            
+            // Don't prevent default - let the link work
+        });
+        
+        console.log(`Button ${index + 1} found:`, button.href, button.textContent.trim());
+    });
+});
+</script>
+{% endblock %}

@@ -1,0 +1,328 @@
+{% extends "base.html" %}
+
+{% block title %}Mental Health Prediction Form{% endblock %}
+
+{% block content %}
+<div class="container mt-5 pt-4">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="prediction-form-wrapper">
+                <div class="card border-0 shadow-lg">
+                    <div class="card-header bg-primary text-white text-center py-4">
+                        <h2 class="mb-0 fw-bold">
+                            <i class="fas fa-clipboard-list me-2"></i>
+                            Mental Health Assessment
+                        </h2>
+                        <p class="mb-0 mt-2 opacity-75">
+                            Please fill out this form to get your personalized prediction
+                        </p>
+                    </div>
+                    
+                    <div class="card-body p-4">
+                        <form id="predictionForm" action="{{ url_for('submit_prediction') }}" method="POST">
+                            <!-- Personal Information -->
+                            <div class="form-section mb-4">
+                                <h4 class="section-title">
+                                    <i class="fas fa-user text-primary me-2"></i>
+                                    Personal Information
+                                </h4>
+                                
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="age" class="form-label fw-semibold">Age</label>
+                                        <input type="number" class="form-control" id="age" name="age" 
+                                               min="18" max="80" required>
+                                        <div class="form-text">Enter your age (18-80 years)</div>
+                                    </div>
+                                    
+                                    <div class="col-md-6 mb-3">
+                                        <label for="gender" class="form-label fw-semibold">Gender</label>
+                                        <select class="form-select" id="gender" name="gender" required>
+                                            <option value="">Select Gender</option>
+                                            <option value="male">Male</option>
+                                            <option value="female">Female</option>
+                                            <option value="other">Other</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="self_employed" class="form-label fw-semibold">Are you self-employed?</label>
+                                    <select class="form-select" id="self_employed" name="self_employed" required>
+                                        <option value="">Select an option</option>
+                                        <option value="no">No</option>
+                                        <option value="yes">Yes</option>
+                                    </select>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="family_history" class="form-label fw-semibold">Do you have a family history of mental illness?</label>
+                                    <select class="form-select" id="family_history" name="family_history" required>
+                                        <option value="">Select an option</option>
+                                        <option value="no">No</option>
+                                        <option value="yes">Yes</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- Work Environment -->
+                            <div class="form-section mb-4">
+                                <h4 class="section-title">
+                                    <i class="fas fa-building text-primary me-2"></i>
+                                    Work Environment
+                                </h4>
+
+                                <div class="mb-3">
+                                    <label for="work_interfere" class="form-label fw-semibold">
+                                        If you have a mental health condition, do you feel that it interferes with your work?
+                                    </label>
+                                    <select class="form-select" id="work_interfere" name="work_interfere" required>
+                                        <option value="">Select an option</option>
+                                        <option value="never">Never</option>
+                                        <option value="rarely">Rarely</option>
+                                        <option value="sometimes">Sometimes</option>
+                                        <option value="often">Often</option>
+                                    </select>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="remote_work" class="form-label fw-semibold">Do you work remotely?</label>
+                                        <select class="form-select" id="remote_work" name="remote_work" required>
+                                            <option value="">Select an option</option>
+                                            <option value="no">No</option>
+                                            <option value="yes">Yes</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="col-md-6 mb-3">
+                                        <label for="tech_company" class="form-label fw-semibold">Is your employer primarily a tech company?</label>
+                                        <select class="form-select" id="tech_company" name="tech_company" required>
+                                            <option value="">Select an option</option>
+                                            <option value="no">No</option>
+                                            <option value="yes">Yes</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Company Benefits -->
+                            <div class="form-section mb-4">
+                                <h4 class="section-title">
+                                    <i class="fas fa-heart text-primary me-2"></i>
+                                    Company Benefits & Support
+                                </h4>
+
+                                <div class="mb-3">
+                                    <label for="benefits" class="form-label fw-semibold">
+                                        Does your employer provide mental health benefits?
+                                    </label>
+                                    <select class="form-select" id="benefits" name="benefits" required>
+                                        <option value="">Select an option</option>
+                                        <option value="no">No</option>
+                                        <option value="yes">Yes</option>
+                                        <option value="don't know">Don't Know</option>
+                                    </select>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="care_options" class="form-label fw-semibold">
+                                        Do you know the options for mental health care your employer provides?
+                                    </label>
+                                    <select class="form-select" id="care_options" name="care_options" required>
+                                        <option value="">Select an option</option>
+                                        <option value="no">No</option>
+                                        <option value="yes">Yes</option>
+                                        <option value="not sure">Not Sure</option>
+                                    </select>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="wellness_program" class="form-label fw-semibold">
+                                            Has your employer ever discussed mental health as part of an employee wellness program?
+                                        </label>
+                                        <select class="form-select" id="wellness_program" name="wellness_program" required>
+                                            <option value="">Select an option</option>
+                                            <option value="no">No</option>
+                                            <option value="yes">Yes</option>
+                                            <option value="don't know">Don't Know</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="col-md-6 mb-3">
+                                        <label for="seek_help" class="form-label fw-semibold">
+                                            Does your employer provide resources to learn more about mental health issues?
+                                        </label>
+                                        <select class="form-select" id="seek_help" name="seek_help" required>
+                                            <option value="">Select an option</option>
+                                            <option value="no">No</option>
+                                            <option value="yes">Yes</option>
+                                            <option value="don't know">Don't Know</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Workplace Attitudes -->
+                            <div class="form-section mb-4">
+                                <h4 class="section-title">
+                                    <i class="fas fa-users text-primary me-2"></i>
+                                    Workplace Attitudes
+                                </h4>
+
+                                <div class="mb-3">
+                                    <label for="mental_health_consequence" class="form-label fw-semibold">
+                                        Do you think that discussing a mental health issue with your employer would have negative consequences?
+                                    </label>
+                                    <select class="form-select" id="mental_health_consequence" name="mental_health_consequence" required>
+                                        <option value="">Select an option</option>
+                                        <option value="no">No</option>
+                                        <option value="maybe">Maybe</option>
+                                        <option value="yes">Yes</option>
+                                    </select>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="phys_health_consequence" class="form-label fw-semibold">
+                                        Do you think that discussing a physical health issue with your employer would have negative consequences?
+                                    </label>
+                                    <select class="form-select" id="phys_health_consequence" name="phys_health_consequence" required>
+                                        <option value="">Select an option</option>
+                                        <option value="no">No</option>
+                                        <option value="maybe">Maybe</option>
+                                        <option value="yes">Yes</option>
+                                    </select>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="coworkers" class="form-label fw-semibold">
+                                            Would you be willing to discuss a mental health issue with your coworkers?
+                                        </label>
+                                        <select class="form-select" id="coworkers" name="coworkers" required>
+                                            <option value="">Select an option</option>
+                                            <option value="no">No</option>
+                                            <option value="some of them">Some of them</option>
+                                            <option value="yes">Yes</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="col-md-6 mb-3">
+                                        <label for="supervisor" class="form-label fw-semibold">
+                                            Would you be willing to discuss a mental health issue with your direct supervisor(s)?
+                                        </label>
+                                        <select class="form-select" id="supervisor" name="supervisor" required>
+                                            <option value="">Select an option</option>
+                                            <option value="no">No</option>
+                                            <option value="some of them">Some of them</option>
+                                            <option value="yes">Yes</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Interview Questions -->
+                            <div class="form-section mb-4">
+                                <h4 class="section-title">
+                                    <i class="fas fa-comments text-primary me-2"></i>
+                                    Interview & Discussion
+                                </h4>
+
+                                <div class="mb-3">
+                                    <label for="mental_health_interview" class="form-label fw-semibold">
+                                        Would you bring up a mental health issue with a potential employer in an interview?
+                                    </label>
+                                    <select class="form-select" id="mental_health_interview" name="mental_health_interview" required>
+                                        <option value="">Select an option</option>
+                                        <option value="no">No</option>
+                                        <option value="maybe">Maybe</option>
+                                        <option value="yes">Yes</option>
+                                    </select>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="phys_health_interview" class="form-label fw-semibold">
+                                        Would you bring up a physical health issue with a potential employer in an interview?
+                                    </label>
+                                    <select class="form-select" id="phys_health_interview" name="phys_health_interview" required>
+                                        <option value="">Select an option</option>
+                                        <option value="no">No</option>
+                                        <option value="maybe">Maybe</option>
+                                        <option value="yes">Yes</option>
+                                    </select>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="mental_vs_physical" class="form-label fw-semibold">
+                                        Do you feel that your employer takes mental health as seriously as physical health?
+                                    </label>
+                                    <select class="form-select" id="mental_vs_physical" name="mental_vs_physical" required>
+                                        <option value="">Select an option</option>
+                                        <option value="no">No</option>
+                                        <option value="don't know">Don't Know</option>
+                                        <option value="yes">Yes</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- Submit Button -->
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-primary btn-lg px-5" id="submitBtn">
+                                    <i class="fas fa-chart-line me-2"></i>
+                                    Get Prediction
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Loading Modal -->
+<div class="modal fade" id="loadingModal" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body text-center py-5">
+                <div class="spinner-border text-primary mb-3" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+                <h5>Analyzing your data...</h5>
+                <p class="text-muted mb-0">Please wait while our AI processes your information</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+document.getElementById('predictionForm').addEventListener('submit', function(e) {
+    // Show loading modal
+    var loadingModal = new bootstrap.Modal(document.getElementById('loadingModal'));
+    loadingModal.show();
+    
+    // Disable submit button
+    document.getElementById('submitBtn').disabled = true;
+});
+
+// Form validation
+(function() {
+    'use strict';
+    window.addEventListener('load', function() {
+        var forms = document.getElementsByClassName('needs-validation');
+        var validation = Array.prototype.filter.call(forms, function(form) {
+            form.addEventListener('submit', function(event) {
+                if (form.checkValidity() === false) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                }
+                form.classList.add('was-validated');
+            }, false);
+        });
+    }, false);
+})();
+</script>
+{% endblock %}

@@ -1,0 +1,233 @@
+{% extends "base.html" %}
+
+{% block title %}About - Mental Health Prediction System{% endblock %}
+
+{% block content %}
+<div class="container mt-5 pt-4">
+    <!-- Page Header -->
+    <div class="row mb-5">
+        <div class="col-12 text-center">
+            <h1 class="display-4 fw-bold">About Our System</h1>
+            <p class="lead text-muted">
+                Learn more about the technology and research behind our mental health prediction model
+            </p>
+        </div>
+    </div>
+
+    <!-- Project Overview -->
+    <div class="row mb-5">
+        <div class="col-lg-8 mx-auto">
+            <div class="card border-0 shadow-sm">
+                <div class="card-body p-4">
+                    <h3 class="fw-bold mb-3">
+                        <i class="fas fa-info-circle text-primary me-2"></i>
+                        Project Overview
+                    </h3>
+                    <p class="mb-3">
+                        This Mental Health Prediction System is an AI-powered web application that analyzes 
+                        various workplace and personal factors to predict the likelihood of an individual 
+                        seeking mental health treatment. The system is built using advanced machine learning 
+                        techniques and provides valuable insights for both individuals and organizations.
+                    </p>
+                    <p class="mb-0">
+                        The model was trained on a comprehensive dataset containing over 1,000 survey responses 
+                        from employees across various industries, with a focus on technology sector workers.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Technical Details -->
+    <div class="row mb-5">
+        <div class="col-lg-6 mb-4">
+            <div class="card border-0 shadow-sm h-100">
+                <div class="card-body p-4">
+                    <h4 class="fw-bold mb-3">
+                        <i class="fas fa-cog text-success me-2"></i>
+                        Technical Stack
+                    </h4>
+                    <ul class="list-unstyled">
+                        <li class="mb-2">
+                            <i class="fas fa-check text-success me-2"></i>
+                            <strong>Backend:</strong> Flask (Python)
+                        </li>
+                        <li class="mb-2">
+                            <i class="fas fa-check text-success me-2"></i>
+                            <strong>ML Framework:</strong> Scikit-learn
+                        </li>
+                        <li class="mb-2">
+                            <i class="fas fa-check text-success me-2"></i>
+                            <strong>Model:</strong> Logistic Regression with Preprocessing Pipeline
+                        </li>
+                        <li class="mb-2">
+                            <i class="fas fa-check text-success me-2"></i>
+                            <strong>Frontend:</strong> Bootstrap 5, HTML5, CSS3, JavaScript
+                        </li>
+                        <li class="mb-2">
+                            <i class="fas fa-check text-success me-2"></i>
+                            <strong>Data Processing:</strong> Pandas, NumPy
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-lg-6 mb-4">
+            <div class="card border-0 shadow-sm h-100">
+                <div class="card-body p-4">
+                    <h4 class="fw-bold mb-3">
+                        <i class="fas fa-chart-bar text-info me-2"></i>
+                        Model Performance
+                    </h4>
+                    <ul class="list-unstyled">
+                        <li class="mb-2">
+                            <i class="fas fa-star text-warning me-2"></i>
+                            <strong>Accuracy:</strong> 92%+
+                        </li>
+                        <li class="mb-2">
+                            <i class="fas fa-star text-warning me-2"></i>
+                            <strong>Features:</strong> 20 input variables
+                        </li>
+                        <li class="mb-2">
+                            <i class="fas fa-star text-warning me-2"></i>
+                            <strong>Training Data:</strong> 1000+ samples
+                        </li>
+                        <li class="mb-2">
+                            <i class="fas fa-star text-warning me-2"></i>
+                            <strong>Validation:</strong> Cross-validated
+                        </li>
+                        <li class="mb-2">
+                            <i class="fas fa-star text-warning me-2"></i>
+                            <strong>Preprocessing:</strong> StandardScaler + OneHotEncoder
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Key Features -->
+    <div class="row mb-5">
+        <div class="col-12">
+            <h3 class="fw-bold text-center mb-4">Key Features Analyzed</h3>
+            <div class="row g-3">
+                <div class="col-md-4">
+                    <div class="feature-item card border-0 bg-light">
+                        <div class="card-body text-center p-3">
+                            <i class="fas fa-user fa-2x text-primary mb-2"></i>
+                            <h6 class="fw-semibold">Personal Factors</h6>
+                            <small class="text-muted">Age, Gender, Family History</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-item card border-0 bg-light">
+                        <div class="card-body text-center p-3">
+                            <i class="fas fa-building fa-2x text-success mb-2"></i>
+                            <h6 class="fw-semibold">Work Environment</h6>
+                            <small class="text-muted">Remote Work, Tech Company, Work Interference</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-item card border-0 bg-light">
+                        <div class="card-body text-center p-3">
+                            <i class="fas fa-heart fa-2x text-danger mb-2"></i>
+                            <h6 class="fw-semibold">Company Support</h6>
+                            <small class="text-muted">Benefits, Wellness Programs, Care Options</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-item card border-0 bg-light">
+                        <div class="card-body text-center p-3">
+                            <i class="fas fa-users fa-2x text-info mb-2"></i>
+                            <h6 class="fw-semibold">Social Attitudes</h6>
+                            <small class="text-muted">Coworker Relations, Supervisor Communication</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-item card border-0 bg-light">
+                        <div class="card-body text-center p-3">
+                            <i class="fas fa-comments fa-2x text-warning mb-2"></i>
+                            <h6 class="fw-semibold">Communication</h6>
+                            <small class="text-muted">Interview Discussions, Consequence Perceptions</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-item card border-0 bg-light">
+                        <div class="card-body text-center p-3">
+                            <i class="fas fa-balance-scale fa-2x text-secondary mb-2"></i>
+                            <h6 class="fw-semibold">Health Comparison</h6>
+                            <small class="text-muted">Mental vs Physical Health Treatment</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Data & Privacy -->
+    <div class="row mb-5">
+        <div class="col-lg-8 mx-auto">
+            <div class="card border-0 shadow-sm">
+                <div class="card-body p-4">
+                    <h3 class="fw-bold mb-3">
+                        <i class="fas fa-shield-alt text-success me-2"></i>
+                        Data & Privacy
+                    </h3>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h5 class="fw-semibold">Data Source</h5>
+                            <p class="text-muted">
+                                The model was trained on anonymized survey data from a mental health 
+                                in tech survey, ensuring diverse representation across different 
+                                demographics and workplace environments.
+                            </p>
+                        </div>
+                        <div class="col-md-6">
+                            <h5 class="fw-semibold">Privacy Protection</h5>
+                            <p class="text-muted">
+                                Your input data is processed locally and not stored on our servers. 
+                                All predictions are made in real-time without retaining any 
+                                personal information.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Limitations -->
+    <div class="row mb-5">
+        <div class="col-lg-8 mx-auto">
+            <div class="alert alert-warning">
+                <h5 class="fw-semibold">
+                    <i class="fas fa-exclamation-triangle me-2"></i>
+                    Important Limitations
+                </h5>
+                <ul class="mb-0">
+                    <li>This system provides statistical predictions based on patterns in historical data</li>
+                    <li>Results should not be used as a substitute for professional medical advice</li>
+                    <li>Individual circumstances may vary significantly from statistical patterns</li>
+                    <li>Always consult qualified healthcare professionals for mental health concerns</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="row">
+        <div class="col-12 text-center">
+            <a href="{{ url_for('predict_form') }}" class="btn btn-primary btn-lg">
+                <i class="fas fa-chart-line me-2"></i>
+                Try the Prediction System
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}
