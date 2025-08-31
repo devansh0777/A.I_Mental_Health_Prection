@@ -203,7 +203,7 @@ body {
 }
 
 .form-label {
-    color: var(--dark-color);
+    color: #222222;
     margin-bottom: 8px;
     font-size: 0.9rem;
 }
