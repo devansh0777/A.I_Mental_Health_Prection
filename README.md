@@ -267,24 +267,3 @@ CMD ["gunicorn", "-w", "4", "-b", "0.0.0.0:5000", "app:app"]
 
 This system provides statistical predictions based on patterns in historical data and should not be used as a substitute for professional medical advice. Always consult qualified healthcare professionals for mental health concerns.
 
-## 📧 Contact
-
-For questions, suggestions, or collaboration opportunities, please reach out through:
-- GitHub Issues
-- Project documentation
-- Professional networking platforms
-
-## 🏆 Resume Highlights
-
-This project demonstrates:
-- **Full-Stack Development**: Flask backend + responsive frontend
-- **Machine Learning**: End-to-end ML pipeline implementation
-- **Data Science**: Statistical analysis and model validation
-- **UI/UX Design**: Modern, professional interface design
-- **Software Engineering**: Clean code, documentation, testing
-- **API Development**: RESTful web services
-- **Deployment**: Production-ready application structure
-
----
-
-**Built with ❤️ and Machine Learning**
