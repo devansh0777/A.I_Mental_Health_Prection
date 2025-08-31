@@ -473,6 +473,6 @@ footer {
 @media (prefers-color-scheme: dark) {
     :root {
         --light-color: #1e293b;
-        --dark-color: #f8fafc;
+        --dark-color: #222222;
     }
 }
